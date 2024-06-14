@@ -1,0 +1,84 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
+
+local Window = Library.CreateLib("1% win Creator: 78loxo78", "RJTheme3")
+
+local Tab = Window:NewTab("1% win")
+
+local Section = Tab:NewSection("Teleport")
+
+
+Section:NewButton("Teleport to finish", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").EndArea.Chest.CFrame
+end)
+
+
+Section:NewButton("Teleport to Hard Obby finish", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Teleporters.HardFinish.Detector.CFrame
+end)
+
+
+Section:NewButton("Teleport to Medium Obby finish", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Teleporters.MediumFinish.Detector.CFrame
+end)
+
+
+Section:NewButton("Teleport to Easy Obby finish", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Teleporters.EasyFinish.Detector.CFrame
+end)
+
+
+Section:NewButton("Teleport to Stair Obby finish", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Teleporters.RainbowStaircaseFinish.Detector.CFrame
+end)
+
+local Section = Tab:NewSection("Universal")
+
+
+Section:NewButton("Speed bind:LShift", "ВЫКЛЮЧИ ШИФТ ЛОК/TURN OFF SHIFT LOCK", function()
+    -- Подключаем слушателя событий клавиатуры и мыши
+game:GetService("UserInputService").InputBegan:Connect(function(input, isProcessed)
+    -- Проверяем, что нажата клавиша для увеличения скорости (например, Shift)
+    if input.KeyCode == Enum.KeyCode.LeftShift and not isProcessed then
+        -- Получаем игрового персонажа
+        local character = game.Players.LocalPlayer.Character
+        -- Проверяем, что персонаж существует и у него есть хитбокс
+        if character and character:FindFirstChild("Humanoid") then
+            -- Устанавливаем увеличенную скорость для персонажа
+            character.Humanoid.WalkSpeed = 100 -- Измените это значение на желаемую скорость
+        end
+    end
+end)
+
+-- Подключаем слушателя для сброса скорости при отпускании клавиши
+game:GetService("UserInputService").InputEnded:Connect(function(input)
+    -- Проверяем, что отпущена клавиша для увеличения скорости (например, Shift)
+    if input.KeyCode == Enum.KeyCode.LeftShift then
+        -- Получаем игрового персонажа
+        local character = game.Players.LocalPlayer.Character
+        -- Проверяем, что персонаж существует и у него есть хитбокс
+        if character and character:FindFirstChild("Humanoid") then
+            -- Сбрасываем скорость на стандартное значение
+            character.Humanoid.WalkSpeed = 16 -- Значение скорости по умолчанию
+        end
+    end
+end)
+end)
+
+
+Section:NewSlider("WalkSpeed", "", 500, 16, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+
+Section:NewButton("Esp", "ButtonInfo", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
+end)
+
+local Tab = Window:NewTab("Others")
+
+local Section = Tab:NewSection("Creator:78loxo78 DISCORD:idk_1lox")
+
+
+Section:NewButton("infinite yield", "ButtonInfo", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
